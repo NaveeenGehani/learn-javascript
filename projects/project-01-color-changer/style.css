@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 600;
+    border-bottom: 3px solid black;
+    margin: 1rem 0;
+}
+
+#container {
+    display: flex;
+    gap: 2em;
+    padding: 1em;
+    border: 3px solid red;
+    border-radius: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#btn {
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 10px;
+    font-weight:700;
+}
+
+#color-box {
+    font-size: 1.5em;
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+/*
+
+display: block; and margin: auto; don’t center inline elements like <button> inside a parent.
+text-align: center; centers inline/inline-block children inside the container.
+
+*/
