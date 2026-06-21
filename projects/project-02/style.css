@@ -1,0 +1,211 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+    background: linear-gradient(180deg, #f7fbff 0%, #d9eefc 100%);
+}
+
+h1 {
+    color: #023047;
+    letter-spacing: 0.06em;
+    font-size: 2rem;
+}
+
+#timer {
+    width: min(420px, 100%);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background-color: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+#timer #time p {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+    align-items: baseline;
+    white-space: nowrap; /* prevent wrapping of digits */
+    margin: 0;
+}
+
+#timer #time p span {
+    display: inline-block;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1;
+    min-width: 2ch;
+    text-align: center;
+    color: #023047;
+    letter-spacing: 0.15em;
+}
+
+/* make milliseconds smaller so it stays inline */
+#milisecond {
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+}
+
+#timer #timer-btns {
+    display: flex;
+    gap: 0.85rem;
+    width: 100%;
+}
+
+#timer #timer-btns button,
+#timer .add-btn button {
+    flex: 1;
+    padding: 0.9rem 1rem;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+#timer #timer-btns button {
+    background-color: #0077b6;
+    color: #ffffff;
+}
+
+#timer #timer-btns button:hover {
+    transform: translateY(-1px);
+    background-color: #005f86;
+}
+
+#timer .add-btn {
+    width: 100%;
+}
+
+#timer .add-btn button {
+    background-color: #00b4d8;
+    color: #ffffff;
+}
+
+#timer #add-btn button:hover {
+    transform: translateY(-1px);
+    background-color: #0288a6;
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(0, 119, 182, 0.3);
+    outline-offset: 3px;
+}
+
+/* Notes / popup styles */
+.notes {
+    width: min(420px, 100%);
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.note {
+    background: #fff59d;
+    padding: 0.75rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    text-align: left;
+}
+.note .meta {
+    font-size: 0.8rem;
+    color: #023047;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+.note .desc {
+    font-size: 0.95rem;
+    color: #012a4a;
+}
+.note-popup {
+    position: relative;
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.note-popup.hidden { display: none; }
+.note-popup textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #cfd8dc;
+    resize: vertical;
+    font-size: 0.95rem;
+}
+.note-popup-btns { display:flex; gap:0.5rem; }
+.note-popup-btns button { flex: 1; }
+
+/* Save / Cancel button styles */
+#note-save-btn,
+#note-cancel-btn {
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+    box-shadow: 0 6px 14px rgba(2, 48, 71, 0.06);
+}
+
+#note-save-btn {
+    background-color: #0077b6;
+    color: #ffffff;
+}
+
+#note-save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(2, 48, 71, 0.12);
+}
+
+#note-cancel-btn {
+    background-color: #f1f5f9;
+    color: #023047;
+}
+
+#note-cancel-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(2, 48, 71, 0.06);
+}
+
+#note-save-btn:focus-visible, #note-cancel-btn:focus-visible {
+    outline: 3px solid rgba(0, 119, 182, 0.22);
+    outline-offset: 3px;
+}
+
+/* Slightly stack the buttons on very narrow viewports while keeping them balanced */
+@media (max-width: 380px) {
+    .note-popup-btns { flex-direction: column; }
+    .note-popup-btns button { width: 100%; }
+}
+
+/* Responsive rules: stack buttons on small screens and scale text/buttons */
+@media (max-width: 480px) {
+    #timer { padding: 1rem; }
+    #timer #time p { font-size: clamp(1.6rem, 8vw, 2.4rem); }
+    #timer #timer-btns { flex-direction: column; }
+    #timer #timer-btns button,
+    #timer .add-btn button { padding: 0.9rem; font-size: 1.05rem; border-radius: 12px; width: 100%; }
+    #timer #timer-btns { gap: 0.5rem; }
+    .note-popup textarea { min-height: 100px; }
+}
+
+@media (min-width: 1024px) {
+    #timer { width: 420px; padding: 2rem; }
+    #timer #time p { font-size: clamp(2.5rem, 3.5vw, 4rem); }
+    #timer #timer-btns button { padding: 1rem 1.25rem; font-size: 1.05rem; }
+}

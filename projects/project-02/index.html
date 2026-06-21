@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Timer</h1>
+
+    <div id="timer">
+        <div id="time">
+            <p>
+                <span id="hour">00</span> :
+                <span id="minute">00</span> :
+                <span id="second">00</span> :
+                <span id="milisecond">000</span>
+            </p>
+        </div>
+        <div id="timer-btns">
+            <button id="start-btn" onclick="startStopwatch()">Start</button>
+            <button id="stop-btn" onclick="stopStopwatch()">Stop</button>
+            <button id="reset-btn" onclick="resetStopwatch()">Reset</button>
+        </div>
+        <div class="add-btn">
+            <button class="add-btn" id="add-note-btn">Add Note</button>
+        </div>
+        <div id="note-popup" class="note-popup hidden">
+            <textarea id="note-text" placeholder="Describe what you completed..."></textarea>
+            <div class="note-popup-btns">
+                <button id="note-save-btn">Save</button>
+                <button id="note-cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="notes" class="notes"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
